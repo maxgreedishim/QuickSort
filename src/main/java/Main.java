@@ -3,7 +3,7 @@ import java.util.Arrays;
 class QuickSort {
     public static int middleShow = 0;
     public static int meaning = 0;
-
+    public static int meaningShow = 0;
     public static void quickSort(int[] array, int start, int end ){
         if (end == -1) {
             System.out.println("Массив не заполнен");
@@ -14,9 +14,12 @@ class QuickSort {
             return;
         }
 
-        int middle = (start + end) / 2;
-        middleShow = middle;
+        int middle = start + (end - start) / 2;
         meaning = array[middle];
+        if (middleShow == 0){
+            middleShow = middle;
+            meaningShow = meaning;
+        }
 
         int s = start;
         int e = end;
@@ -49,11 +52,11 @@ class QuickSort {
     }
 
     public static void main(String[] args) {
-        int [] array = new int[]{8,6,7,5,3,4,2,1};
+        int [] array = new int[]{8,6,7,5,3,4,2,1,5};
         System.out.println("     исходный массив" + Arrays.toString(array));
         quickSort(array,0, array.length -1);
         System.out.println("центр массива: " + middleShow);
-        System.out.println("значения центра массива: " + meaning);
+        System.out.println("значения центра массива: " + meaningShow);
         System.out.println("сортированный массив" + Arrays.toString(array));
 
     }
